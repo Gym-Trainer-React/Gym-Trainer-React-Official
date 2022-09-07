@@ -25,11 +25,7 @@ function AuthNavbarElements({appUser}: AuthNavbarElementProps){
     return <>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/exercises">Exercises</Link></li>
-<<<<<<< HEAD
-        <li>User Profile</li>
-=======
         <li><Link to="/workoutLog">WorkoutLog</Link></li>
->>>>>>> a6c5916500b2dbcc6816e2c9a10a65ffd711efd3
         <li className="element right">Hello, {appUser?.username}</li>
     </>
 }
