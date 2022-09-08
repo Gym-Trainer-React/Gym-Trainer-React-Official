@@ -4,6 +4,7 @@ import WorkoutLog from "../components/WorkoutLog";
 export interface WorkoutLogData {
   userId: number;
   workoutId: number;
+  workoutName: string;
   comment: string;
   completed: boolean;
   dateCompleted: Date;
@@ -13,6 +14,7 @@ const tempWorkoutLog: Array<WorkoutLogData> = [
   {
     userId: 1,
     workoutId: 1,
+    workoutName: "Test Workout1",
     comment: "test comment",
     completed: false,
     dateCompleted: new Date("2022-01-02"),
@@ -20,6 +22,7 @@ const tempWorkoutLog: Array<WorkoutLogData> = [
   {
     userId: 2,
     workoutId: 2,
+    workoutName: "Test Workout2",
     comment: "test comment",
     completed: true,
     dateCompleted: new Date("2021-02-01"),

@@ -4,6 +4,7 @@ import GymForm from "./components/Form/GymForm";
 
 import Navbar from "./components/Navbar/Navbar";
 import Routes from "./components/Routes";
+import StickyFooter from "./components/StickyFooter";
 import AppUserProvider from "./context/AppUserProvider";
 
 // React Context API -> allows to define a context that is visible throughout our app
@@ -18,6 +19,7 @@ function App() {
           <Navbar />
           <GymForm />
           <Routes />
+          <StickyFooter/>
   </>
 }
 
