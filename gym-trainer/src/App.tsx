@@ -5,6 +5,7 @@ import GymForm from "./components/Form/GymForm";
 import Navbar from "./components/Navbar/Navbar";
 import Routes from "./components/Routes";
 import AppUserProvider from "./context/AppUserProvider";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // React Context API -> allows to define a context that is visible throughout our app
 //    Essentially CONTEXT is GLOBAL STATE
