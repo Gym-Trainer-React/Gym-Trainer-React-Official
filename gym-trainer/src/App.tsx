@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState } from "react";
+import GymForm from "./components/Form/GymForm";
 
 import Navbar from "./components/Navbar/Navbar";
 import Routes from "./components/Routes";
@@ -16,6 +17,7 @@ import AppUserProvider from "./context/AppUserProvider";
 function App() {
   return <> 
           <Navbar />
+          <GymForm />
           <Routes />
           <StickyFooter/>
   </>
