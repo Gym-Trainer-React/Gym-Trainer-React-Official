@@ -5,6 +5,8 @@ import AuthPage from "../pages/AuthPage"
 import HomePage from "../pages/HomePage"
 import { useContext } from "react"
 import { AppUserContext } from "../context/AppUserProvider"
+import SignUpFormP1 from "./profiles/users/SignUpPart1"
+import GymForm from "./Form/GymForm"
 
 export default function Routes(){
 
@@ -17,6 +19,9 @@ export default function Routes(){
         {!appUser && <AuthPage />}
       </>
     }/>
+    <Route path="/gymform" element={<GymForm/>}/>
     <Route path="/exercises" element={<ExercisePage />}/>
+    <Route path="/register" element={<SignUpFormP1/>}/>
+
   </DOMRoutes>
 }

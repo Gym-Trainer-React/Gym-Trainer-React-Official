@@ -2,6 +2,10 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
+import { Container, Card, TextField,Box } from '@mui/material';
+import "./SignUpForm.css"
+
+
 
 
  const SignUpFormRC: React.FC = () =>{
@@ -30,7 +34,10 @@ import * as Yup from 'yup';
 
         });
 
+        
+
         const onSubmit = (data: UserSubmitForm) => {
+          //data is the form
             console.log(JSON.stringify(data, null, 2));
         }
 
@@ -47,11 +54,19 @@ import * as Yup from 'yup';
         
 
         
-    return(
+    return( <Container id="register" className='my-5 mx-5 centered'>
+      <Card style={{width : "25rem", height : "25rem"}}>
             
-            <div className="register-form">
+          
+          
+            <div className="register-form" id="forms">
       <form onSubmit={handleSubmit(onSubmit)}>
+    
+     
         <div className="form-group">
+       
+       
+        
           <label>First Name</label>
           <input
             type="text" placeholder='First Name'
@@ -59,7 +74,13 @@ import * as Yup from 'yup';
             className={`form-control ${errors.firstName ? 'is-invalid' : ''}`}
           />
           <div className="invalid-feedback">{errors.firstName?.message}</div>
+         
+          
         </div>
+        
+        
+        
+
         <div className="form-group">
           <label>Last Name</label>
           <input
@@ -69,6 +90,8 @@ import * as Yup from 'yup';
           />
           <div className="invalid-feedback">{errors.lastName?.message}</div>
         </div>
+
+
         <div className="form-group">
           <label>Username</label>
           <input
@@ -78,6 +101,8 @@ import * as Yup from 'yup';
           />
           <div className="invalid-feedback">{errors.username?.message}</div>
         </div>
+
+
         <div className="form-group">
           <label>Password</label>
           <input
@@ -87,6 +112,8 @@ import * as Yup from 'yup';
           />
           <div className="invalid-feedback">{errors.password?.message}</div>
         </div>
+
+
         <div className="form-group">
           <label>Confirm Password</label>
           <input
@@ -115,6 +142,11 @@ import * as Yup from 'yup';
         </div>
       </form>
     </div>
+
+    
+
+    </Card>
+    </Container>
     
         
     )

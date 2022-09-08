@@ -1,5 +1,17 @@
 div.register-form{
     text-align: center;
-    background-color: aqua;
+ 
+    padding-left: 12px;
+    padding: 10px;
+    
+}
+div.register-form label{
+    color:rgb(34, 31, 31);
+    text-align: center;
 }
 
+
+
+centered{
+    text-align: center;
+}

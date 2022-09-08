@@ -1,5 +1,5 @@
 
-import SignUpFormRC from "../components/profiles/users/SignUpFormRC";
+import SignUpFormRC from "../components/profiles/users/SignUpPart1";
 
 
 
