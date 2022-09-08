@@ -1,0 +1,28 @@
+.Modal{
+    padding: 70px;
+
+    
+}
+
+.Modal .header{
+    background-color: maroon;
+    color: whitesmoke
+}
+
+.Modal .body{
+    background-color: rgba(222, 217, 217, 0.671);
+}
+
+.Modal .footer{
+    background-color: rgba(222, 217, 217, 0.671);
+}
+
+.Modal .footer .primary{
+    background-color: maroon;
+    border: black;
+    
+}
+
+.Modal .footer .primary:hover{
+    background-color: rgb(185, 46, 46)
+}

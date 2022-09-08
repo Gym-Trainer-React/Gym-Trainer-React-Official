@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { ExerciseData, tempExercises } from '../../pages/ExercisePage';
+import "./DayView.css"
 
 interface workout {
     id: number,
@@ -15,20 +16,20 @@ interface workout {
 interface WorkoutLog{
   id: number,
   user: string,
-  workout: workout ,
+  workout: workout,
   notes: string,
   completed: Boolean,
   date: Date
 }
 
-interface WorkoutPlanDto {
-   id: number;
-   user: string;
-   goal: string;
-   splits: string;
-   startDate:Date;
-   endDate: Date;
-   workoutList: workout[];
+interface WorkoutPlan {
+   id: number,
+   user: string,
+   goal: string,
+   splits: string,
+   startDate:Date,
+   endDate: Date,
+   workoutList: workout[]
 }
 
 function sendData(workout: any, notes: any, completed: any){
@@ -104,14 +105,14 @@ export default function DayView(props: any) {
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
+        Day View
       </Button>
 
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
+      <Modal className="Modal" show={show} onHide={handleClose}>
+        <Modal.Header className="header" closeButton>
           <Modal.Title>{props.day}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="body">
             <input type="checkbox" id="completed" name="completed" checked={completed} onChange={(e) => setCompleted(!completed)}></input>
             <label htmlFor='completed'> &nbsp; Completed</label>
 
@@ -130,11 +131,11 @@ export default function DayView(props: any) {
 
 
         </Modal.Body>
-        <Modal.Footer>
+        <Modal.Footer className="footer">
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={saveAndClose}>
+          <Button className="primary" onClick={saveAndClose}>
             Save Changes
           </Button>
         </Modal.Footer>
