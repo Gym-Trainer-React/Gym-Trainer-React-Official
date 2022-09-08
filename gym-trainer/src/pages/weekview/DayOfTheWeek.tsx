@@ -1,3 +1,4 @@
+import DayView from "../../components/DayView/DayView"
 import "./DayOfTheWeek.css"
 
 function DayOfTheWeek(props: any) {
@@ -7,6 +8,7 @@ function DayOfTheWeek(props: any) {
             <strong>{props.day}</strong>
         </div>
         <p>{props.time} {props.place}</p>
+        <DayView day={props.day}></DayView>
     </div>
   )
 }
