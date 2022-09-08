@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import WorkoutLog from "../components/WorkoutLog";
+import { AppUser, AppUserContext } from "../context/AppUserProvider";
 
 export interface WorkoutLogData {
-  userId: number;
+  user: AppUser | null;
   workoutId: number;
   workoutName: string;
   comment: string;
@@ -10,9 +11,12 @@ export interface WorkoutLogData {
   dateCompleted: Date;
 }
 
+const appUser = useContext(AppUserContext)
+
+
 const tempWorkoutLog: Array<WorkoutLogData> = [
   {
-    userId: 1,
+    user: appUser,
     workoutId: 1,
     workoutName: "Test Workout1",
     comment: "test comment",
@@ -20,7 +24,7 @@ const tempWorkoutLog: Array<WorkoutLogData> = [
     dateCompleted: new Date("2022-01-02"),
   },
   {
-    userId: 2,
+    user: appUser,
     workoutId: 2,
     workoutName: "Test Workout2",
     comment: "test comment",
