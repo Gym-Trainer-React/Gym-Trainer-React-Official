@@ -3,6 +3,7 @@ import SignUP1 from "../components/profiles/users/SignUpPart1";
 
 
 export default function HomePage(){
+
     return (
     
     <>
@@ -10,4 +11,5 @@ export default function HomePage(){
     <SignUP1/>
     
     </>)
+
 }

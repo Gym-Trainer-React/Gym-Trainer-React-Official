@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import User from "../profiles/users/SignUpPart1";
+import "./GymForm.css";
 
 export default function GymForm(){
 
@@ -13,28 +15,42 @@ export default function GymForm(){
         setSplit(e.target.value);
     }
     
-    return <div> 
+    return <div id="GF-container"> 
         <form>
-            {/* user input */}
+            <h1>Hello <span id="GF-username"> username {/* user input */}</span></h1>
 
-            <label> What is your desired outcome? </label>
-            <select value={goal} onChange={handleGoalChange}>
-                {/* <option value="NoGoal">Choose an option</option> */}
-                <option value="Cutting">Cutting</option>
-                <option value="Maintaining">Maintaining</option>
-                <option value="Bulking">Bulking</option>
-            </select>
+            <h2>Let's begin your journey with a few questions . . . </h2>
 
-            <label> How many times a week do you want to workout? </label>
-            <select value={split} onChange={handleSplitChange}>
-                {/* <option value="NoSplit">Choose an option</option> */}
-                <option value="3-days">3 Days</option>
-                <option value="4-days">4 Days</option>
-                <option value="5-days">5 Days</option>
-            </select>
+                {/* <label>What is your goal?</label> */}
+                <div className="GF-div">
+                    <label>"I want to work on 
+                        <select data-placeholder="Choose an option" value={goal} onChange={handleGoalChange}>
+                            <option disabled={true} value=""> Choose an option </option>
+                            <option value="Cutting">Cutting</option>
+                            <option value="Maintaining">Maintaining</option>
+                            <option value="Bulking">Bulking</option>
+                        </select>
+                        to get my desired outcome."
+                    </label>
+                </div>
 
-            <button type="submit">Submit</button>
-            {/* Need to handle submit to Generate workout */}
+                {/* <label> How many times a week do you want to workout?</label> */}
+                <div className="GF-div">
+                    <label>"I want to workout 
+                        <select value={split} onChange={handleSplitChange}>
+                            <option disabled={true} value=""> Choose an option </option>
+                            <option value="3-days">3 days</option>
+                            <option value="4-days">4 days</option>
+                            <option value="5-days">5 days</option>
+                        </select>
+                        a week."
+                    </label>
+                </div>
+
+                <div className="GF-div-button">
+                    <button id="GF-button" type="submit">Submit</button>
+                    {/* Need to handle submit to Generate workout */}
+                </div>
         </form>
     </div>
 }
