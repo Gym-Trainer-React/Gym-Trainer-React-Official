@@ -1,6 +1,8 @@
 import { WorkoutLogData } from "../pages/WorkoutLogPage";
 import { AppUserContext } from "../context/AppUserProvider";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { WORKOUT_API } from "../util/ApiConfig";
+
 
 
 
@@ -8,9 +10,11 @@ interface WorkoutLogProps{
     workoutLog: WorkoutLogData;
 }
 
+const appUser = useContext(AppUserContext)
+
 export default function WorkoutLog({workoutLog}:WorkoutLogProps){
 
-    const appUser = useContext(AppUserContext)
+    
     
     return <div>
         <h3>User: {appUser?.username}</h3>
@@ -21,4 +25,20 @@ export default function WorkoutLog({workoutLog}:WorkoutLogProps){
 
 }
 
+const [log, setWorkoutLog] = useState<WorkoutLogData | null>(null)
 
+// WORKOUT_API.post("/log", submitWorkoutLogData)
+//     .then((response) => {
+//         setWorkoutLog(response.data)
+//     })
+
+// function submitWorkoutLogData({}:WorkoutLogProps){
+//     const workoutLog : {
+//       userId: appUser,
+//       workoutId:
+//       comment:
+//       completed: 
+//       dateCompleted: new Date()
+
+//     }   
+//   }
