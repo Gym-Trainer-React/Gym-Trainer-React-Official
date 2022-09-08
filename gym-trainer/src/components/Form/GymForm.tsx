@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import User from "../profiles/users/SignUpPart1";
 import "./GymForm.css";
+import CredentialsForm from "../CredentialsForm";
+import AppUserProvider from "../../context/AppUserProvider";
+import { AppUser } from "../../context/AppUserProvider";
 
 export default function GymForm(){
 
     const [goal, setGoal] = useState("");
-    const [split, setSplit] = useState("");
+    const [splits, setSplit] = useState("");
 
     const handleGoalChange = (e: any) => {
         setGoal(e.target.value);
@@ -17,7 +20,7 @@ export default function GymForm(){
     
     return <div id="GF-container"> 
         <form>
-            <h1>Hello <span id="GF-username"> username {/* user input */}</span></h1>
+            <h1>Hello <span id="GF-username"> {/* user input */}</span></h1>
 
             <h2>Let's begin your journey with a few questions . . . </h2>
 
@@ -37,11 +40,11 @@ export default function GymForm(){
                 {/* <label> How many times a week do you want to workout?</label> */}
                 <div className="GF-div">
                     <label>"I want to workout 
-                        <select value={split} onChange={handleSplitChange}>
+                        <select value={splits} onChange={handleSplitChange}>
                             <option disabled={true} value=""> Choose an option </option>
-                            <option value="3-days">3 days</option>
-                            <option value="4-days">4 days</option>
-                            <option value="5-days">5 days</option>
+                            <option value="THREE(3)">3 days</option>
+                            <option value="FOUR(4)">4 days</option>
+                            <option value="FIVE(5)">5 days</option>
                         </select>
                         a week."
                     </label>
