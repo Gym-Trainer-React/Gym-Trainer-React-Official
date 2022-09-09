@@ -16,7 +16,6 @@ import AppUserProvider from "./context/AppUserProvider";
 function App() {
   return <> 
           <Navbar />
-         
           <Routes />
   </>
 }

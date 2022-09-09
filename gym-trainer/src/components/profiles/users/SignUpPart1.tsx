@@ -4,6 +4,8 @@ import {yupResolver} from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { Container, Card, TextField,Box } from '@mui/material';
 import "./SignUpForm.css"
+import Button from '@mui/material/Button';
+import "../../../pages/AuthPage.css"
 
 
 
@@ -54,8 +56,10 @@ import "./SignUpForm.css"
         
 
         
-    return( <Container id="register" className='my-5 mx-5 centered'>
-      <Card style={{width : "25rem", height : "25rem"}}>
+    return( <Container  id="register" className='registrationCard'>
+      <Card style={{width : "30rem", height : "35rem"}}>
+
+        <h1>New User Registration</h1>
             
           
           
@@ -73,7 +77,7 @@ import "./SignUpForm.css"
             {...register('firstName')}
             className={`form-control ${errors.firstName ? 'is-invalid' : ''}`}
           />
-          <div className="invalid-feedback">{errors.firstName?.message}</div>
+          <div id="invalid-input">{errors.firstName?.message}</div>
          
           
         </div>
@@ -88,7 +92,7 @@ import "./SignUpForm.css"
             {...register('lastName')}
             className={`form-control ${errors.lastName ? 'is-invalid' : ''}`}
           />
-          <div className="invalid-feedback">{errors.lastName?.message}</div>
+          <div id="invalid-input">{errors.lastName?.message}</div>
         </div>
 
 
@@ -99,7 +103,7 @@ import "./SignUpForm.css"
             {...register('username')}
             className={`form-control ${errors.username ? 'is-invalid' : ''}`}
           />
-          <div className="invalid-feedback">{errors.username?.message}</div>
+          <div id="invalid-input">{errors.username?.message}</div>
         </div>
 
 
@@ -110,7 +114,7 @@ import "./SignUpForm.css"
             {...register('password')}
             className={`form-control ${errors.password ? 'is-invalid' : ''}`}
           />
-          <div className="invalid-feedback">{errors.password?.message}</div>
+          <div id="invalid-input">{errors.password?.message}</div>
         </div>
 
 
@@ -123,22 +127,22 @@ import "./SignUpForm.css"
               errors.confirmPassword ? 'is-invalid' : ''
             }`}
           />
-          <div className="invalid-feedback">
+          <div id="invalid-input">
             {errors.confirmPassword?.message}
           </div>
         </div>
         
         <div className="form-group">
-          <button type="submit" className="btn btn-primary">
+          <Button type="submit" variant="contained">
             Register
-          </button>
-          <button
+          </Button>
+          <Button
             type="button"
             onClick={() => reset()}
-            className="btn btn-warning float-right"
+            variant="outlined"
           >
             Reset
-          </button>
+          </Button>
         </div>
       </form>
     </div>
