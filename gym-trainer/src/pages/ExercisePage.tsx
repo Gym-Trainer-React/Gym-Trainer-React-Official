@@ -15,7 +15,7 @@ export interface ExerciseData{
     variations: Array<number>;
 }
 
-const tempExercises: Array<ExerciseData> = [
+export const tempExercises: Array<ExerciseData> = [
     {
         "id": 345,
         "name": "2 Handed Kettlebell Swing",
