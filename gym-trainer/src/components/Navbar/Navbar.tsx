@@ -22,15 +22,12 @@ interface AuthNavbarElementProps{
 }
 
 function AuthNavbarElements({appUser}: AuthNavbarElementProps){
-
-
     return <>
-    <li><Link to="/">Home</Link></li>
-    <li><Link to="/exercises">Exercises</Link></li>
-    <li><Link to="/workoutLog">WorkoutLog</Link></li>
-    <li>User Profile</li>
-    <li className="element right">Hello, {appUser?.username}</li>
-</>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/exercises">Exercises</Link></li>
+        <li>User Profile</li>
+        <li className="element right">Hello, {appUser?.username}</li>
+    </>
 }
 
 function NoAuthNavbarElements(){

@@ -5,7 +5,6 @@ import AuthPage from "../pages/AuthPage"
 import HomePage from "../pages/HomePage"
 import { useContext } from "react"
 import { AppUserContext } from "../context/AppUserProvider"
-import WorkoutLogPage from "../pages/WorkoutLogPage"
 
 export default function Routes(){
 
@@ -19,6 +18,5 @@ export default function Routes(){
       </>
     }/>
     <Route path="/exercises" element={<ExercisePage />}/>
-    <Route path="/WorkoutLog" element={<WorkoutLogPage />}/>
   </DOMRoutes>
 }
