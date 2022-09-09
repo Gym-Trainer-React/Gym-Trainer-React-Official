@@ -15,12 +15,25 @@ interface workout {
 }
 
 interface WorkoutLog{
-  id: number,
-  user: string,
-  workout: workout,
+  
+  user: any,
+  workout: any,
   notes: string,
   completed: Boolean,
   date: Date
+}
+
+function mapWorkoutLogData(data: any): Array<WorkoutLog>{
+  return data.map(({user,workout,notes,completed,date }: any) => {
+      return {
+          "user": user,
+          "workout": workout,
+          "notes": notes,
+          "completed": completed,
+          "date": date,
+      
+      }
+  })
 }
 
 function sendData(userId: number, workoutId: number, notes: any, completed: any) {
@@ -35,8 +48,14 @@ function sendData(userId: number, workoutId: number, notes: any, completed: any)
     "completed" : completed,
     "date" : new Date()
   }).then(
-    res => console.log(res)
+    res => {
+      console.log(res)
+      const workoutLog = mapWorkoutLogData(res)
+    }
   );
+
+
+  
 }
 
 
@@ -59,6 +78,9 @@ function getData() : workout{
 
 
 
+
+
+
 function mapData(data: any): Array<ExerciseData>{
     return data.map(({id, name, exercise_base, description, category, muscles, muscles_secondary, equipment, variations}: any) => {
         return {
@@ -77,6 +99,7 @@ function mapData(data: any): Array<ExerciseData>{
 
 
 export default function DayView(props: any) {
+
   function pageLoad(){getData();}
   useEffect(pageLoad, [])
   const [show, setShow] = useState(false);
@@ -89,7 +112,7 @@ export default function DayView(props: any) {
   const handleShow = () => setShow(true);
 
   const saveAndClose = () => {setShow(false); setWorkout(workout); sendData(1, 1, log, completed);}
-
+  console.log(saveAndClose);
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
@@ -116,7 +139,6 @@ export default function DayView(props: any) {
 
             <textarea value={log} onChange={(e) => {setLog(e.target.value)}}/>
             {workout.notes}
-
 
         </Modal.Body>
         <Modal.Footer className="footer">
