@@ -12,7 +12,6 @@
     "@types/jest": "^27.5.2",
     "@types/node": "^16.11.56",
     "@types/react": "^18.0.17",
-    "@types/react-bootstrap": "^0.32.30",
     "@types/react-dom": "^18.0.6",
     "axios": "^0.27.2",
     "bootstrap": "^5.2.1",

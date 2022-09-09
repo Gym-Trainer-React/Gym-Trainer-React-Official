@@ -16,21 +16,24 @@ import "./App.css"
 //      3. Pass the value of the state variable as a property to the Provider
 
 function App() {
-<<<<<<< HEAD
+
   return <> 
-          <Navbar />
-          <GymForm />
-          <Routes />
-          <StickyFooter/>
+          <div className="App">
+           <Navbar />
+           {/* <GymForm /> */}
+           <Routes />
+           <StickyFooter/>
+          </div>
   </>
-=======
-  return <div className="App">
-      <Navbar />
-      <Routes />
-  </div>
+
+  // return <div className="App">
+  //     <Navbar />
+  //     <Routes />
+      
+  // </div>
          
   
->>>>>>> cb45905102de242fe6fced190de9cfa67666ef5f
+
 }
 
 
