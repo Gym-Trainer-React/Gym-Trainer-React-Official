@@ -53,12 +53,12 @@ export default function WorkoutLog({workoutLog}:WorkoutLogProps){
             Username : {workoutLog.user?.username}
             </Typography>
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-            Workout Id: {workoutLog.workoutId}
+            Workout Id: {workoutLog.workout}
             </Typography>
    
             
             <Typography variant="h5" component="div">
-             {workoutLog.workoutName}
+             {workoutLog.workout}
             </Typography>
             <Typography sx={{ mb: 1.5 }} color="text.secondary">
                 Completed: {workoutLog.completed ? 'true' : 'false'}

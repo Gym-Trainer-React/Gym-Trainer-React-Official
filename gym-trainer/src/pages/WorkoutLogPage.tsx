@@ -3,9 +3,8 @@ import WorkoutLog from "../components/WorkoutLog";
 import { AppUser, AppUserContext } from "../context/AppUserProvider";
 
 export interface WorkoutLogData {
-  user: AppUser | null;
-  workoutId: number;
-  workoutName: string;
+  user: any;
+  workout: any;
   comment: string;
   completed: boolean;
   dateCompleted: Date;
@@ -16,16 +15,14 @@ export interface WorkoutLogData {
 const tempWorkoutLog: Array<WorkoutLogData> = [
   {
     user: {username: "lenny", password: "lenny"},
-    workoutId: 1,
-    workoutName: "Test Workout1",
+    workout: "Test Workout1",
     comment: "test comment",
     completed: false,
     dateCompleted: new Date("2022-01-02"),
   },
   {
     user: {username: "lenny1", password: "lenny1"},
-    workoutId: 2,
-    workoutName: "Test Workout2",
+    workout: "Test Workout2",
     comment: "test comment",
     completed: true,
     dateCompleted: new Date("2021-02-01"),

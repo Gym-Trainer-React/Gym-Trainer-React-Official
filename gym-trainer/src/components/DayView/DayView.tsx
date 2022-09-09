@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { ExerciseData, tempExercises } from '../../pages/ExercisePage';
+import { WorkoutLogData } from '../../pages/WorkoutLogPage';
 import "./DayView.css"
 
 interface workout {
@@ -15,12 +16,7 @@ interface workout {
 }
 
 interface WorkoutLog{
-  id: number,
-  user: string,
-  workout: workout,
-  notes: string,
-  completed: Boolean,
-  date: Date
+ workoutLog: WorkoutLogData
 }
 
 function sendData(userId: number, workoutId: number, notes: any, completed: any) {
