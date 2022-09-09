@@ -74,8 +74,6 @@ export default function WorkoutLog({workoutLog}:WorkoutLogProps){
         </React.Fragment>
        
       );
-
-      
     return <div style={{ display:'flex', justifyContent:'center' }}>
         {/* <h3>User Id: {workoutLog.userId}</h3>
         <h3>Workout Id: {workoutLog.workoutId}</h3>
