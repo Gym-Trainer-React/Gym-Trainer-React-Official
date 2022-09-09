@@ -88,7 +88,7 @@ export default function ExercisePage(){
         //     .then((data) => setExercises(mapData(data)))
 
         WORKOUT_API.get('exercise?language=2')
-            .then(response => setExercises(mapData(response.data)))
+            .then((response: { data: any; }) => setExercises(mapData(response.data)))
     }
 
     function mapData(data: any): Array<ExerciseData>{

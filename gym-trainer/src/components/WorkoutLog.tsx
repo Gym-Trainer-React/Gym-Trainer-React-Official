@@ -1,7 +1,7 @@
 import { WorkoutLogData } from "../pages/WorkoutLogPage";
-
-
-
+import { AppUserContext } from "../context/AppUserProvider";
+import { useContext, useState } from "react";
+import { WORKOUT_API } from "../util/ApiConfig";
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -10,10 +10,21 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
+
 interface WorkoutLogProps{
     workoutLog: WorkoutLogData;
 }
 
+// export default function WorkoutLog({workoutLog}:WorkoutLogProps){
+   
+//     return <div>
+//         <h3>User: {appUser?.username}</h3>
+//         <p>Comment: {workoutLog.comment}</p>
+//         <p>Completed: {workoutLog.completed}</p>
+//         <p>Date: {workoutLog.dateCompleted.toString()}</p>
+//     </div>
+
+// }
 
 // const bull = (
 //   <Box
@@ -24,17 +35,22 @@ interface WorkoutLogProps{
 //   </Box>
 // );
 
-
-
-
-
-
 export default function WorkoutLog({workoutLog}:WorkoutLogProps){
+    const appUser = useContext(AppUserContext)
+    const [log, setWorkoutLog] = useState<WorkoutLogData | null>(null)
+
+    function submitWorkoutLogData(workoutLog:WorkoutLogProps){         
+      WORKOUT_API.post("/log", workoutLog)
+      .then((response) => {
+          setWorkoutLog(response.data)
+      })
+    }
+    
     const card = (
         <React.Fragment>
           <CardContent  >
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-            User Id: {workoutLog.userId}
+            Username : {workoutLog.user?.username}
             </Typography>
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             Workout Id: {workoutLog.workoutId}

@@ -11,10 +11,6 @@ export default function User(){
     const [bio, setBio] = useState("");
     const [gender, setGender] = useState("");
     
-
-
-
-
     return (
         <>
         <h1> New User Registration</h1>

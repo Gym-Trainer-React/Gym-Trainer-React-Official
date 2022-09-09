@@ -17,6 +17,7 @@ import "./App.css"
 
 function App() {
 
+
   return <div className="App"> 
           <Navbar />
           <GymForm />
@@ -24,7 +25,6 @@ function App() {
           <StickyFooter/>
   </div>
 
-         
 
 }
 
