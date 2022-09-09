@@ -1,8 +1,15 @@
 import React, {useState} from "react";
 
 export interface AppUser {
-    username: string;
-    password: string;
+    "id": number,
+    "username": string,
+    "firstName": string,
+    "lastName": string,
+    "height": string,
+    "weight": number,
+    "age": number,
+    "gender": string,
+    "bio": string
 }
 
 export const AppUserContext = React.createContext<AppUser | null>(null);

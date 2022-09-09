@@ -54,7 +54,7 @@ function sendData(userId: number, workoutId: number, notes: any, completed: any)
     }
   );
 
-
+  axios.get("http://gymappapi-env.eba-xyq67ruz.us-east-2.elasticbeanstalk.com/user")
   
 }
 

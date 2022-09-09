@@ -1,5 +1,6 @@
 import {useContext, useState} from "react"
 import { AppUser, AppUserUpdateContext } from "../context/AppUserProvider";
+import { BACKEND_API } from "../util/ApiConfig";
 
 interface CredentialsFormProps{
     type: CredentialFormType;
@@ -30,17 +31,24 @@ export default function CredentialsForm({type}: CredentialsFormProps){
 
 
 
-        function submit(){
-            const user: AppUser = {
-                username: username,
-                password: password
-            }
-            // TODO: call the API to log them in -> return a token
-            //      lift the state of appUser back up to our App component
-            // if(setAppUser) setAppUser(user);
-            setAppUser!(user); // equivalent to the above
+        // function submit(){
+        //     const user: AppUser = {
+        //         username: username,
+        //         password: password
+        //     }
+        //     // TODO: call the API to log them in -> return a token
+        //     //      lift the state of appUser back up to our App component
+        //     // if(setAppUser) setAppUser(user);
+        //     setAppUser!(user); // equivalent to the above
+        // }
+        async function submit(){
+            const res: any = await BACKEND_API.get("user")
+            console.log(res)
+            const users: AppUser[] = res.data
+            const user = users.filter((u => u.username === username))
+            console.log(user)
+            setAppUser!(user);
         }
-        
 
    return <>
         <input type="text" placeholder="username" value={username} onChange={(e) => setUsername(e.target.value)}/> 
