@@ -15,13 +15,8 @@ interface WorkoutLogProps{
     workoutLog: WorkoutLogData;
 }
 
-
-const appUser = useContext(AppUserContext)
-
 // export default function WorkoutLog({workoutLog}:WorkoutLogProps){
-
-    
-    
+   
 //     return <div>
 //         <h3>User: {appUser?.username}</h3>
 //         <p>Comment: {workoutLog.comment}</p>
@@ -30,25 +25,6 @@ const appUser = useContext(AppUserContext)
 //     </div>
 
 // }
-
-const [log, setWorkoutLog] = useState<WorkoutLogData | null>(null)
-
-// WORKOUT_API.post("/log", submitWorkoutLogData)
-//     .then((response) => {
-//         setWorkoutLog(response.data)
-//     })
-
-// function submitWorkoutLogData({}:WorkoutLogProps){
-//     const workoutLog : {
-//       userId: appUser,
-//       workoutId:
-//       comment:
-//       completed: 
-//       dateCompleted: new Date()
-
-//     }   
-//   }
-
 
 // const bull = (
 //   <Box
@@ -59,17 +35,22 @@ const [log, setWorkoutLog] = useState<WorkoutLogData | null>(null)
 //   </Box>
 // );
 
-
-
-
-
-
 export default function WorkoutLog({workoutLog}:WorkoutLogProps){
+    const appUser = useContext(AppUserContext)
+    const [log, setWorkoutLog] = useState<WorkoutLogData | null>(null)
+
+    function submitWorkoutLogData(workoutLog:WorkoutLogProps){         
+      WORKOUT_API.post("/log", workoutLog)
+      .then((response) => {
+          setWorkoutLog(response.data)
+      })
+    }
+    
     const card = (
         <React.Fragment>
           <CardContent  >
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-            User Id: {workoutLog.userId}
+            Username : {workoutLog.user?.username}
             </Typography>
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             Workout Id: {workoutLog.workoutId}

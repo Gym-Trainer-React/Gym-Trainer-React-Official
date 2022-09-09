@@ -11,12 +11,11 @@ export interface WorkoutLogData {
   dateCompleted: Date;
 }
 
-const appUser = useContext(AppUserContext)
-
+//const appUser = useContext(AppUserContext)
 
 const tempWorkoutLog: Array<WorkoutLogData> = [
   {
-    user: appUser,
+    user: {username: "lenny", password: "lenny"},
     workoutId: 1,
     workoutName: "Test Workout1",
     comment: "test comment",
@@ -24,7 +23,7 @@ const tempWorkoutLog: Array<WorkoutLogData> = [
     dateCompleted: new Date("2022-01-02"),
   },
   {
-    user: appUser,
+    user: {username: "lenny1", password: "lenny1"},
     workoutId: 2,
     workoutName: "Test Workout2",
     comment: "test comment",
