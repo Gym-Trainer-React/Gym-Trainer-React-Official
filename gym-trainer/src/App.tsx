@@ -17,22 +17,14 @@ import "./App.css"
 
 function App() {
 
-  return <> 
-          <div className="App">
-           <Navbar />
-           {/* <GymForm /> */}
-           <Routes />
-           <StickyFooter/>
-          </div>
-  </>
 
-  // return <div className="App">
-  //     <Navbar />
-  //     <Routes />
-      
-  // </div>
-         
-  
+  return <div className="App"> 
+          <Navbar />
+          <GymForm />
+          <Routes />
+          <StickyFooter/>
+  </div>
+
 
 }
 

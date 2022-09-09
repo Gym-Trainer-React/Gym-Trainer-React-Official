@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -22,37 +23,28 @@ interface WorkoutLog{
   date: Date
 }
 
-interface WorkoutPlan {
-   id: number,
-   user: string,
-   goal: string,
-   splits: string,
-   startDate:Date,
-   endDate: Date,
-   workoutList: workout[]
-}
-
-function sendData(workout: any, notes: any, completed: any){
-  console.log("sendData invoked");
-  return {
-    
-
-    "id": 1,
-    "user": "testuser",
-    "workout": workout,
-    "notes": notes,
-    "completed": completed,
-    "date": Date
-  }
+function sendData(userId: number, workoutId: number, notes: any, completed: any) {
+  axios.post<WorkoutLog>("http://gymappapi-env.eba-xyq67ruz.us-east-2.elasticbeanstalk.com/log", {
+    "user": {
+      "id":userId
+    },
+    "workout": {
+      "id": workoutId
+    },
+    "notes" : notes,
+    "completed" : completed,
+    "date" : new Date()
+  }).then(
+    res => console.log(res)
+  );
 }
 
 
-function getData(){
+function getData() : workout{
   // Api call using axios (get call)
   // resolve promise by converting body to json
   // fetch(url) endpoint = log, plan
   // handle promise .then
-  console.log("getData invoked");
 
   return{
     "id": 1,
@@ -88,11 +80,7 @@ export default function DayView(props: any) {
   function pageLoad(){getData();}
   useEffect(pageLoad, [])
   const [show, setShow] = useState(false);
-  const [workout, setWorkout] = useState({
-   exercise : mapData(tempExercises),
-    notes: "",
-    completed: false
-  });
+  const [workout, setWorkout] = useState<workout>(() => getData());
 
   const [log, setLog] = useState<string>("");
   const [completed, setCompleted] = useState<boolean>(false);
@@ -100,7 +88,7 @@ export default function DayView(props: any) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const saveAndClose = () => {setShow(false); setWorkout(workout); sendData("", "", "");}
+  const saveAndClose = () => {setShow(false); setWorkout(workout); sendData(1, 1, log, completed);}
 
   return (
     <>
@@ -121,7 +109,7 @@ export default function DayView(props: any) {
             <br/>
 
             {workout.exercise.map(e => {
-                return (<p>{e.name}</p>)
+                return (<p key={e.id}>{e.name}</p>)
             })}
 
             <p><b>Log Day: </b></p>
