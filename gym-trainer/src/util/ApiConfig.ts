@@ -5,3 +5,6 @@ export const WORKOUT_API = axios.create({
 });
 
 
+export const BACKEND_API = axios.create({
+    baseURL: 'http://gymappapi-env.eba-xyq67ruz.us-east-2.elasticbeanstalk.com'
+});

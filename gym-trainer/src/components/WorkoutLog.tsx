@@ -40,19 +40,20 @@ interface WorkoutLogProps{
 export default function WorkoutLog({workoutLog}:WorkoutLogProps){
     const appUser = useContext(AppUserContext)
     const [log, setWorkoutLog] = useState<WorkoutLogData | null>(null)
-
+    console.log(workoutLog)
     function submitWorkoutLogData(workoutLog:WorkoutLogProps){         
       WORKOUT_API.post("/log", workoutLog)
       .then((response) => {
           setWorkoutLog(response.data)
       })
     }
+    console.log(workoutLog.date.toLocaleDateString())
     
     const card = (
         <React.Fragment>
           <CardContent  >
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-            Username : {workoutLog.user?.username}
+            Username : {workoutLog.user.id}
             </Typography>
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             Workout Id: {workoutLog.workout.id}
@@ -62,10 +63,10 @@ export default function WorkoutLog({workoutLog}:WorkoutLogProps){
                 Completed: {workoutLog.completed ? 'true' : 'false'}
             </Typography>
             <Typography variant="body2">
-            Comment: {workoutLog.comment}
+            Comment: {workoutLog.notes}
             </Typography>
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-            Date: {workoutLog.dateCompleted.toString()}
+            Date: {workoutLog.date.toUTCString()}
             </Typography>
           </CardContent>
           {/* <CardActions>

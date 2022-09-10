@@ -23,18 +23,7 @@ interface WorkoutLog{
   date: Date
 }
 
-function mapWorkoutLogData(data: any): Array<WorkoutLog>{
-  return data.map(({user,workout,notes,completed,date }: any) => {
-      return {
-          "user": user,
-          "workout": workout,
-          "notes": notes,
-          "completed": completed,
-          "date": date,
-      
-      }
-  })
-}
+
 
 function sendData(userId: number, workoutId: number, notes: any, completed: any) {
   axios.post<WorkoutLog>("http://gymappapi-env.eba-xyq67ruz.us-east-2.elasticbeanstalk.com/log", {
@@ -50,10 +39,9 @@ function sendData(userId: number, workoutId: number, notes: any, completed: any)
   }).then(
     res => {
       console.log(res)
-      const workoutLog = mapWorkoutLogData(res)
+  
     }
   );
-
 
   
 }
