@@ -6,8 +6,9 @@ import { AppUser, AppUserContext } from "../../context/AppUserProvider";
 export default function Navbar(){
 
     //  AppUserContext acts as a wrapper for the contained state value set in the provider
-    const appUser = useContext(AppUserContext);
-
+    let appUser = useContext(AppUserContext) ;
+    console.log(appUser?.username);
+   
     // const navigate = useNavigate();   -> navigate allows us to replace the URL
    return <ul className="navbar">
         <>
@@ -22,15 +23,15 @@ interface AuthNavbarElementProps{
 }
 
 function AuthNavbarElements({appUser}: AuthNavbarElementProps){
-
-
+    
+    
     return <>
-    <li><Link to="/">Home</Link></li>
-    <li><Link to="/exercises">Exercises</Link></li>
-    <li><Link to="/workoutLog">WorkoutLog</Link></li>
-    <li>User Profile</li>
-    <li className="element right">Hello, {appUser?.username}</li>
-</>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/exercises">Exercises</Link></li>
+        <li><Link to="/workoutLog">WorkoutLog</Link></li>
+        <li>User Profile</li>
+        <li className="element right">Hello, {appUser?.username}</li>
+    </>
 }
 
 function NoAuthNavbarElements(){

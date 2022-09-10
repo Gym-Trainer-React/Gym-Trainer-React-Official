@@ -1,16 +1,20 @@
 import React, {useState} from "react";
 
 export interface AppUser {
-    "id": number,
-    "username": string,
-    "firstName": string,
-    "lastName": string,
-    "height": string,
-    "weight": number,
-    "age": number,
-    "gender": string,
-    "bio": string
+    id: number|null,
+    username: string|null,
+    firstName: string|null,
+    lastName: string|null,
+    height: string|null,
+    weight: number|null,
+    age: number|null,
+    gender: string|null,
+    bio: string|null
+
+
 }
+
+ 
 
 export const AppUserContext = React.createContext<AppUser | null>(null);
 export const AppUserUpdateContext = React.createContext<Function | null>(null);
