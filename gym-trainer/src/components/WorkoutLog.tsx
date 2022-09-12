@@ -53,7 +53,7 @@ export default function WorkoutLog({workoutLog}:WorkoutLogProps){
         <React.Fragment>
           <CardContent  >
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-            Username : {workoutLog.user.id}
+            Username : {workoutLog.user.username}
             </Typography>
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             Workout Id: {workoutLog.workout.id}
